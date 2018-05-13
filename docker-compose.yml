@@ -1,0 +1,6 @@
+ctf-kujira:
+  build: "."
+  container_name: "ctf-kujira"
+  volumes:
+    - ./volume:/home/root
+  tty: true

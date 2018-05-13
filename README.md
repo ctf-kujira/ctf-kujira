@@ -4,7 +4,7 @@ Docker image for CTFer.
 ## How To Use
 ```sh
 # docker pull akakou/ctf-kujira
-# docker run -it akakou/ctf-kujira
+# docker run -it akakou/ctf-kujira zsh
 ```
 
 ## Installed Package 

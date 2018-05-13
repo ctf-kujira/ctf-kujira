@@ -23,3 +23,8 @@ RUN wget https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-compl
 # peda
 RUN git clone https://github.com/longld/peda.git ~/.peda \
     && echo "source ~/.peda/peda.py" >> ~/.gdbinit
+# set zsh
+WORKDIR /home/root/
+ENV SHELL /bin/zsh
+CMD ["zsh", "--version"]
+
