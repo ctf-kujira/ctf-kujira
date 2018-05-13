@@ -3,8 +3,10 @@ Docker image for CTFer.
 
 ## How To Use
 ```sh
-# docker pull akakou/ctf-kujira
-# docker run -it akakou/ctf-kujira zsh
+$ git clone https://github.com/akakou/ctf-kujira/
+$ cd ctf-kujira
+$ sudo docker-compose build
+$ sudo docker-compose run ctf-kujira zsh
 ```
 
 ## Installed Package 
