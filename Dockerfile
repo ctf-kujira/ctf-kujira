@@ -20,9 +20,10 @@ RUN wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x64 \
 # zsh-completions
 RUN wget https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_17.10/amd64/zsh-completions_0.27.0+1.1_amd64.deb \
     && dpkg -i zsh-completions_0.27.0+1.1_amd64.deb
-# peda
-RUN git clone https://github.com/longld/peda.git ~/.peda \
-    && echo "source ~/.peda/peda.py" >> ~/.gdbinit
+# mgpeda
+RUN git clone https://github.com/miyagaw61/mgpeda
+WORKDIR ./mgpeda
+RUN yes | ./mgpeda_install.sh
 # set zsh
 WORKDIR /home/root/
 ENV SHELL /bin/zsh
