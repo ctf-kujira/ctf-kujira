@@ -21,9 +21,9 @@ RUN wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x64 \
 RUN wget https://download.opensuse.org/repositories/shells:/zsh-users:/zsh-completions/xUbuntu_17.10/amd64/zsh-completions_0.27.0+1.1_amd64.deb \
     && dpkg -i zsh-completions_0.27.0+1.1_amd64.deb
 # mgpeda
-RUN git clone https://github.com/miyagaw61/mgpeda
-WORKDIR ./mgpeda
-RUN yes | ./mgpeda_install.sh
+RUN git clone https://github.com/miyagaw61/exgdb
+WORKDIR ./exgdb
+RUN yes | ./install.sh
 # set zsh
 WORKDIR /home/root/
 ENV SHELL /bin/zsh
