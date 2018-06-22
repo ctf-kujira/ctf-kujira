@@ -25,7 +25,7 @@ RUN git clone https://github.com/miyagaw61/exgdb
 WORKDIR ./exgdb
 RUN yes | ./install.sh
 # set zsh
-WORKDIR /home/root/
+WORKDIR /root/
 ENV SHELL /bin/zsh
 CMD ["zsh", "--version"]
 
