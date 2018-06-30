@@ -6,7 +6,7 @@ import subprocess
 
 # set variable
 VOLUME = 'volume'
-FOLDER = 'ctf-kujira'
+FOLDER = '.ctf-kujira'
 KUJIRA_PATH = os.path.expanduser('~') + '/' + FOLDER
 
 if len(sys.argv) > 1:
