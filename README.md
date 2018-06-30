@@ -2,11 +2,19 @@
 Docker image for CTFer.
 
 ## How To Use
+### Install (Linux)
 ```sh
-$ git clone https://github.com/akakou/ctf-kujira/
-$ cd ctf-kujira
-$ sudo docker-compose build
-$ sudo docker-compose run ctf-kujira zsh
+$ wget https://raw.githubusercontent.com/akakou/ctf-kujira/master/install.py
+$ python3 install.py
+```
+### Run
+```sh
+$ kujira
+```
+
+### Uninstall (Linux)
+```sh
+$ python3 uninstall.py
 ```
 
 ## Installed Package 
