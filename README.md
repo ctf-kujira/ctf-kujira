@@ -10,6 +10,8 @@ $ python3 install.py
 ### Run
 ```sh
 $ kujira
+$ kujira filename     # run and copy file to volume
+$ kujira -m filename  # run and move file to volume
 ```
 
 ### Uninstall (Linux)
