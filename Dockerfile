@@ -19,11 +19,13 @@ RUN wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x64 \
     && wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x86 \
     && chmod +x rp-lin-x64 rp-lin-x86 \
     && mv rp-lin-x64 rp-lin-x86 /usr/local/bin
-# mgpeda
-RUN git clone https://github.com/miyagaw61/exgdb
-WORKDIR ./exgdb
-RUN yes | ./install.sh
-
-WORKDIR /root/
+# exgdb
+WORKDIR /root
+RUN git clone https://github.com/miyagaw61/exgdb \
+    && cd ./exgdb \
+    && ln -s $(realpath exgdbctl) /usr/local/bin/exgdbctl \
+    && exgdbctl install expeda \
+    && exgdbctl install Pwngdb \
+    && echo "source $(realpath gdbinit.py)" >> /root/.gdbinit
 CMD ["bash", "--version"]
 

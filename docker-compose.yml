@@ -7,3 +7,5 @@ ctf-kujira:
     - SYS_PTRACE
   security_opt:
     - seccomp:unconfined
+  environment:
+    - EDITOR=vim
