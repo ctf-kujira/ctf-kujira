@@ -23,5 +23,5 @@ if len(sys.argv) > 1:
 
 # run kujira
 os.chdir(KUJIRA_PATH)
-os.system('sudo docker-compose run ctf-kujira zsh')
+os.system('sudo docker-compose run ctf-kujira bash')
 

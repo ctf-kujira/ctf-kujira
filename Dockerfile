@@ -27,5 +27,9 @@ RUN git clone https://github.com/miyagaw61/exgdb \
     && exgdbctl install expeda \
     && exgdbctl install Pwngdb \
     && echo "source $(realpath gdbinit.py)" >> /root/.gdbinit
+
+# add volume
+RUN mkdir volume
+WORKDIR /root/volume
 CMD ["bash", "--version"]
 

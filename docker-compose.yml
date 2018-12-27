@@ -1,7 +1,7 @@
 ctf-kujira:
   build: "."
   volumes:
-    - ./volume:/root
+    - ./volume:/root/volume
   tty: true
   cap_add:
     - SYS_PTRACE
