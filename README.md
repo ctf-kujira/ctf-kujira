@@ -10,8 +10,8 @@ Docker image for CTFer.
 
 ### Install (Linux)
 ```sh
-$ wget https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/install.py
-$ install.py
+$ wget https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/install
+$ python3 install
 ```
 ### Run
 ```sh
@@ -22,8 +22,8 @@ $ kujira -m filename  # run kujira and move file to volume
 
 ### Uninstall (Linux)
 ```sh
-$ wget https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/uninstall.py
-$ uninstall.py
+$ https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/uninstall
+$ python3 uninstall
 ```
 
 ## Installed Package 
