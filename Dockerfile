@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
     python python3 \
     python-pip python3-pip \
     ipython ipython3 \
-    socat nmap tcpdump curl wget \
+    netcat socat nmap tcpdump curl wget \
     gcc clang llvm php-cli nasm qemu \
     radare2 ltrace strace gdb \
     foremost volatility binwalk zip \
