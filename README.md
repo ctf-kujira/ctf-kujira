@@ -1,13 +1,13 @@
 # ctf-kujira
-Docker image for CTFer.
+Docker image and some tools for CTFer.
 
-## How To Use
-### Dependencies
-* python 3
+## Dependencies
+* python3
 * docker
 * docker-compose
 * bash or zsh
 
+## How To Use
 ### Install (Linux)
 ```sh
 $ wget https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/install
@@ -22,7 +22,7 @@ $ kujira -m filename  # run kujira and move file to volume
 
 ### Uninstall (Linux)
 ```sh
-$ https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/uninstall
+$ wget https://raw.githubusercontent.com/akakou/ctf-kujira/master/script/uninstall
 $ python3 uninstall
 ```
 
