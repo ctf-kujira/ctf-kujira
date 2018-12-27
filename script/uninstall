@@ -1,6 +1,13 @@
-#!/usr/bin/python
-
+#!/usr/bin/python3
 import os, sys
+
+# get input
+while True:
+    i = input('Would you remove all files and folders under ./.ctf-kujira ?(y/n):')
+    if i == 'y' or i == 'Y':
+        break
+    elif i == 'n' or i == 'N':
+        exit()
 
 # set variable
 VOLUME = 'volume'
@@ -10,13 +17,8 @@ HOME = os.path.expanduser('~')
 KUJIRA_DIRECTORY_PATH = HOME + '/' + FOLDER
 KUJIRA_PATH = KUJIRA_DIRECTORY_PATH + '/' + KUJIRA
 
-# clone ctf-kujira
-os.chdir(HOME)
-cmd = 'git clone https://github.com/akakou/ctf-kujira/ {}'.format(FOLDER)
-os.system(cmd)
-
-# make volume folder
-cmd = 'mkdir {0}/{1}'.format(KUJIRA_DIRECTORY_PATH, VOLUME)
+# remove files and folders
+cmd = 'sudo rm -rf {0}'.format(KUJIRA_DIRECTORY_PATH)
 os.system(cmd)
 
 # get shell's rc file name
@@ -29,14 +31,16 @@ else:
     sys.stderr.write('shell not supported => {}'.format(shell))
     exit()
 
-# set permission
-cmd = 'sudo chmod +x {0}'.format(KUJIRA_PATH)
-os.system(cmd)
+# remove alias(command)
+f = open(shellrc_path, 'r')
+body = f.read()
+f.close()
 
-# set alias(command)
-f = open(shellrc_path, 'a')
 alias = '\nalias kujira=\'{0}\''.format(KUJIRA_PATH)
-f.write(alias)
+body = body.replace(alias, '')
+
+f = open(shellrc_path, 'w')
+f.write(body)
 f.close()
 
 # restart shell
