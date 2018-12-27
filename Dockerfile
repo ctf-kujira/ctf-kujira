@@ -1,4 +1,5 @@
 FROM ubuntu:artful
+RUN dpkg --add-architecture i386
 # apt-get install
 RUN apt-get update && apt-get install -y \
     git vim coreutils binutils zip \
@@ -8,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     socat nmap tcpdump curl wget \
     gcc clang llvm php-cli nasm qemu \
     radare2 ltrace strace gdb \
-    foremost volatility binwalk zip
+    foremost volatility binwalk zip \
+    libc6:i386 libncurses5:i386 libstdc++6:i386
 # pip install
 RUN pip install hashid scapy pwn && \
     pip3 install hashid scapy 
