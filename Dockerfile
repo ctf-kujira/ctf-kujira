@@ -12,8 +12,8 @@ RUN apt-get update && apt-get install -y \
     foremost volatility binwalk zip \
     libc6:i386 libncurses5:i386 libstdc++6:i386
 # pip install
-RUN pip install hashid scapy pwn && \
-    pip3 install hashid scapy 
+RUN pip install hashid scapy pwn libformatstr && \
+    pip3 install hashid scapy libformatstr
 # rp ++
 RUN wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x64 \
     && wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x86 \
