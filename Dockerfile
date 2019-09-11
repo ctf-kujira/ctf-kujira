@@ -1,4 +1,5 @@
-FROM ubuntu:artful
+FROM ubuntu:latest
+ENV DEBIAN_FRONTEND=noninteractive
 RUN dpkg --add-architecture i386
 # apt-get install
 RUN apt-get update && apt-get install -y \
