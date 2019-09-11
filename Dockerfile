@@ -24,10 +24,12 @@ RUN wget https://github.com/0vercl0k/rp/releases/download/v1/rp-lin-x64 \
 WORKDIR /root
 RUN git clone https://github.com/miyagaw61/exgdb \
     && cd ./exgdb \
-    && ln -s $(realpath exgdbctl) /usr/local/bin/exgdbctl \
-    && exgdbctl install expeda \
+    && export EXGDBPATH=$PWD \
+    && echo "export EXGDBPATH=$PWD" >> ~/.bashrc \
+    && cp -a $EXGDBPATH/bin/exgdbctl /usr/local/bin/ \
+    && exgdbctl install peda \
     && exgdbctl install Pwngdb \
-    && echo "source $(realpath gdbinit.py)" >> /root/.gdbinit
+    && echo "source $EXGDBPATH/gdbinit.py" >> ~/.gdbinit
 
 # add volume
 RUN mkdir volume
