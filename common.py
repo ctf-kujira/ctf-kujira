@@ -4,7 +4,7 @@ import yaml
 
 
 def get_rc_path():
-    # get '.bashrc' or '.zshrc'
+    '''Get '.bashrc' or '.zshrc.'''
     home = os.path.expanduser('~')
 
     shell = os.environ['SHELL']
@@ -14,6 +14,7 @@ def get_rc_path():
 
 
 def generate_command():
+    '''Generate the command.'''
     # get name
     current_dir = os.getcwd()
     command_name = current_dir.split('/')[-1]
