@@ -1,3 +1,8 @@
-sample:
-  image: ubuntu:latest
-  command: echo "hello"
+compiler:
+  build: "."
+  volumes:
+   - ./volume:/app/
+  tty: true
+  environment:
+    - EDITOR=vim
+  command: pandoc -F pandoc-crossref /app/report.md -o /app/report.pdf --pdf-engine lualatex -V luatexjapresetoptions=ipa -N

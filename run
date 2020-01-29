@@ -7,8 +7,12 @@ from utils.common import get_file_path
 
 def main():
     path = get_file_path('')
+    volume_path = get_file_path('volume')
+
     os.chdir(path)
     launch()
+    
+    print(f'{volume_path}')
 
 
 if __name__ == '__main__':
