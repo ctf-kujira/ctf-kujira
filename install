@@ -1,40 +1,31 @@
 #!/usr/bin/env python3
 
-import os, sys
-import yaml
+import os
 import argparse
 
+from common import generate_command, get_rc_path
 
-# make volume directory
-parser = argparse.ArgumentParser()
-parser.add_argument('--path', default='volume')
-args = parser.parse_args()
 
-try:
-    os.mkdir(args.volume)
-except:
-    pass
+def main():
+    # make volume directory
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--path', default='volume')
+    args = parser.parse_args()
 
-# get '.bashrc' or '.zshrc'
-home = os.path.expanduser('~')
+    # make volume directory
+    try:
+        os.mkdir(args.volume)
+    except:
+        pass
 
-shell = os.environ['SHELL']
-shell = shell.split('/')[-1]
+    command = generate_command()
 
-rc_path = f'{home}/.{shell}rc'
+    rc_path = get_rc_path()
 
-# get name
-current_dir = os.getcwd()
-command_name = current_dir.split('/')[-1]
+    # write file
+    with open(rc_path, 'a') as f:
+        f.write(command)
 
-# get name
-command = f'''
-alias {command_name}=" \
-    cd {current_dir}/volume \
-    && docker-compose up"
-'''.replace('  ', '')
 
-# write file
-with open(rc_path, 'a') as f:
-    f.write(command)
-
+if __name__ == '__main__':
+    main()
