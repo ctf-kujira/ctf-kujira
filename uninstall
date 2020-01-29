@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from common import generate_command, get_rc_path
+from utils.common import generate_command, get_rc_path
 
 
 def main():
