@@ -1,0 +1,3 @@
+sample:
+  image: ubuntu:latest
+  command: echo "hello"
