@@ -2,9 +2,12 @@
 
 import os
 from utils.tools import launch
+from utils.common import get_file_path
 
 
 def main():
+    path = get_file_path('')
+    os.chdir(path)
     launch()
 
 
