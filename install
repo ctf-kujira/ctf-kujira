@@ -2,12 +2,15 @@
 
 import os
 
-from utils.common import generate_command, get_rc_path
+from utils.common import generate_command, get_rc_path, get_file_path
 
 
 def main():
     command = generate_command()
     rc_path = get_rc_path()
+
+    path = get_file_path('run')
+    os.system(f'chmod +x {path}')
 
     with open(rc_path, 'a') as f:
         f.write(command)

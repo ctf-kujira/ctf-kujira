@@ -1,5 +1,6 @@
 import os
 import sys
+import pathlib
 import yaml
 
 
@@ -13,6 +14,14 @@ def get_rc_path():
     return f'{home}/.{shell}rc'
 
 
+def get_file_path(filename):
+    '''Get ./run path.'''
+    abslib = os.path.abspath(__file__)
+    directory_path = pathlib.Path(abslib).parent.parent
+    file_path = f'{directory_path}/{filename}'
+    return file_path
+
+
 def generate_command():
     '''Generate the command.'''
     # get name
@@ -20,10 +29,7 @@ def generate_command():
     command_name = current_dir.split('/')[-1]
 
     # get name
-    command = f'''
-    alias {command_name}=" \
-    cd {current_dir}/volume \
-    && docker-compose up"
-    '''.replace('  ', '')
+    run_path = get_file_path('run')
+    command = f'alias {command_name}="{run_path}"'.replace('  ', '')
 
     return command
