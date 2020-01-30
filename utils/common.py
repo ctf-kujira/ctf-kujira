@@ -30,6 +30,6 @@ def generate_command():
 
     # get name
     run_path = get_file_path('run')
-    command = f'alias {command_name}="{run_path}"'.replace('  ', '')
+    command = f'alias {command_name}="{run_path}"\n'.replace('  ', '')
 
     return command
