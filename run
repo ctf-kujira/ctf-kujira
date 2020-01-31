@@ -3,11 +3,13 @@
 import os
 import os.path
 
-from utils.tools import launch
+from utils import compose
 from utils.common import get_file_path
 
 import argparse
 
+CONTAINER_NAME = 'ctf-kujira'
+COMMAND = '/bin/bash'
 
 def main():
     parser = argparse.ArgumentParser()
@@ -17,11 +19,8 @@ def main():
     if args.copy:
         dest_path = get_file_path(f'volume')
         os.system(f'sudo cp -r {args.copy} {dest_path}')
-        # if os.path.exists(dest_path):
-        #     shutil.rmtree(dest_path)
-        # shutil.copytree(args.copy, dest_path)
 
-    launch()
+    compose.run(f'{CONTAINER_NAME} {COMMAND}')
 
 
 if __name__ == '__main__':
