@@ -1,5 +1,5 @@
 import os
-import utils.common import get_file_path
+from utils.common import get_file_path
 
 
 def launch():
