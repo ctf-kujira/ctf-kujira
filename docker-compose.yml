@@ -1,4 +1,6 @@
-ctf-kujira:
+my-kujira:
+  ports:
+    - "1-65535:1-65535"
   build: "."
   volumes:
     - ./volume:/root/volume
@@ -7,5 +9,6 @@ ctf-kujira:
     - SYS_PTRACE
   security_opt:
     - seccomp:unconfined
-  environment:
-    - EDITOR=vim
+  environment:                                                            
+    - EDITOR=vim  
+    - EXGDBPATH=/root/exgdb
