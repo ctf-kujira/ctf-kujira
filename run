@@ -1,0 +1,13 @@
+#!/usr/bin/env python3
+
+import os
+
+from utils.tools import launch
+
+
+def main():
+    launch()
+
+
+if __name__ == '__main__':
+    main()
