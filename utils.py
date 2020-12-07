@@ -17,7 +17,7 @@ def get_rc_path():
 def get_file_path(filename):
     '''Get ./run path.'''
     abslib = os.path.abspath(__file__)
-    directory_path = pathlib.Path(abslib).parent.parent
+    directory_path = pathlib.Path(abslib).parent
     file_path = f'{directory_path}/{filename}'
     return file_path
 
