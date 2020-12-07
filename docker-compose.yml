@@ -1,14 +1,20 @@
-my-kujira:
-  ports:
-    - "1-65535:1-65535"
-  build: "."
-  volumes:
-    - ./volume:/root/volume
-  tty: true
-  cap_add:
-    - SYS_PTRACE
-  security_opt:
-    - seccomp:unconfined
-  environment:                                                            
-    - EDITOR=vim  
-    - EXGDBPATH=/root/exgdb
+version: "3.3"
+services:
+  ctf-kujira:
+    ports:
+      - "1-65535:1-65535"
+    build: "."
+    volumes:
+      - ./volume:/root/volume
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/Xauthority:/root/Xauthority
+    network_mode: "host"
+    tty: true
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - seccomp:unconfined
+    environment:                                                            
+      - EDITOR=vim  
+      - EXGDBPATH=/root/exgdb
+      - DISPLAY=${DISPLAY}
