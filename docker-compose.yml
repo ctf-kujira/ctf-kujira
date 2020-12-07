@@ -7,7 +7,6 @@ services:
     volumes:
       - ./volume:/root/volume
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ~/Xauthority:/root/Xauthority
     network_mode: "host"
     tty: true
     cap_add:
