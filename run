@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
-import os
+import os, sys
 import os.path
 
-from utils import compose
-from utils.common import get_file_path
+from utils import get_file_path
 
 import argparse
 
@@ -12,16 +11,17 @@ CONTAINER_NAME = 'ctf-kujira'
 COMMAND = '/bin/bash'
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--copy', help='copy file or directory')
-    args = parser.parse_args()
+    dest_path = get_file_path(f'volume')
+    
+    if len(sys.argv) < 2:
+        args = "bash"
+    else:
+        args = ' '.join(sys.argv[1:])
+    
+    print("run: ", args)
 
-    if args.copy:
-        dest_path = get_file_path(f'volume')
-        os.system(f'sudo cp -r {args.copy} {dest_path}')
-
-    compose.run(f'{CONTAINER_NAME} {COMMAND}')
-
+    path = get_file_path('')
+    os.system(f'cd {path} && docker-compose run {CONTAINER_NAME} bash -c "{args}"')
 
 if __name__ == '__main__':
     main()
